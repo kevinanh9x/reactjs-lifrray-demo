@@ -1,0 +1,85 @@
+{
+  "employees": [
+    {
+      "id": 1,
+      "name": "Nguyen Viet Long",
+      "gender": "Male",
+      "email": "long@gmail.com",
+      "address": "Ha Noi",
+      "phone": "123456789",
+      "role": "dev"
+    },
+    {
+      "id": 2,
+      "name": "Truong Xuan Nghia",
+      "gender": "Male",
+      "email": "nghiatx@dogoo.vn",
+      "address": "Ha Noi",
+      "phone": "123456789",
+      "role": "dev"
+    },
+    {
+      "id": 3,
+      "name": "Do Xuan Phi",
+      "gender": "Male",
+      "email": "phidx@dogoo.com",
+      "address": "Ha Noi",
+      "phone": "123456789",
+      "role": "dev"
+    },
+    {
+      "id": "38e1a7c4-eb55-467a-9a05-6f5407d59579",
+      "name": "Do Tuan Dat",
+      "gender": "Male",
+      "email": "datdt@dogoo.vn",
+      "address": "Ha Noi",
+      "phone": "0984193954",
+      "role": "dev"
+    },
+    {
+      "id": "fa0cbc75-38d0-4bd2-9528-78456b0194ce",
+      "name": "Vi Van Ninh",
+      "gender": "Male",
+      "email": "ninhvv@dogoo.vn",
+      "address": "Ha Noi",
+      "phone": "123456789",
+      "role": "sysadmin"
+    },
+    {
+      "id": "ff1a713d-8956-4cbe-b1ec-9e5696d67884",
+      "name": "Pham Duc Dat",
+      "gender": "Male",
+      "email": "datpd@dogoo.vn",
+      "address": "Ha Noi",
+      "phone": "123456789",
+      "role": "dev"
+    },
+    {
+      "id": "3f0f6391-192b-48ef-88b6-1bb0765b1a2a",
+      "name": "anhict",
+      "gender": "Male",
+      "email": "theanh4497@gmail.com",
+      "address": "Tả Thanh Oai - Thanh Trì - Hà Nội",
+      "phone": "0386130391",
+      "role": "dev"
+    },
+    {
+      "id": "78843e4b-120f-4646-9b89-15c027b9e48a",
+      "name": "anhict",
+      "gender": "Male",
+      "email": "kythuat@bivaco.net",
+      "address": "Tả Thanh Oai - Thanh Trì - Hà Nội",
+      "phone": "0386130391",
+      "role": "dev"
+    },
+    {
+      "id": "cde7b6ab-69bd-4e91-bf7e-e7e0d376c9df",
+      "name": "11",
+      "gender": "Female",
+      "email": "theanh4497@gmail.com",
+      "address": "Tả Thanh Oai - Thanh Trì - Hà Nội",
+      "phone": "0386130391",
+      "role": "dev"
+    }
+  ]
+}
