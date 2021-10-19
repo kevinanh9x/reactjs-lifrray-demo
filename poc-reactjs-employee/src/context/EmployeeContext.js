@@ -34,16 +34,15 @@ const EmployeeContextProvider = (props) => {
         localStorage.setItem('employees', JSON.stringify(employees));
     })
 
-    const addEmployee = async (name, gender, email, address, phone, role) => {
+    const addEmployee = async (name, gender, birthday, address, hasaccount) => {
         const request = 
             {
                 id: uuidv4(),
                 name,
                 gender,
-                email,
+                birthday,
                 address,
-                phone,
-                role,
+                hasaccount,
             }
         const response = await axios.post(`http://localhost:3000/employees`, request)
         setEmployees(

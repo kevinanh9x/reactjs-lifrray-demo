@@ -56,10 +56,9 @@ const EmployeeList = () => {
                         <tr>
                             <th>Name</th>
                             <th>Gender</th>
-                            <th>Email</th>
+                            <th>BirthDay</th>
                             <th>Address</th>
-                            <th>Phone</th>
-                            <th>Role</th>
+                            <th>Has Account</th>
                             <th>Action</th>
                         </tr>
                     </thead>

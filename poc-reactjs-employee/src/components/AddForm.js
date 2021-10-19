@@ -2,36 +2,38 @@ import React from 'react'
 import { useContext, useState } from 'react'
 import { EmployeeContext } from '../context/EmployeeContext';
 import { Button, Form, InputGroup } from 'react-bootstrap';
+import "flatpickr/dist/flatpickr.css";
+import Flatpickr from "react-flatpickr";
 
 const AddForm = () => {
     const {addEmployee} = useContext(EmployeeContext)
 
+    const [date, setDate] = useState(new Date());
+
     const [newEmployee, setNewEmployee] = useState({
         name: '',
         gender: '',
-        email: '',
+        birthday: '',
         address: '',
-        phone: '',
-        role: '',
+        hasaccount: ''
     })
 
     const onInputChange = (e) => {
         setNewEmployee({...newEmployee, [e.target.name]: e.target.value})
     }
 
-    const {name, gender, email, address, phone, role} = newEmployee
+    const {name, gender, birthday, address, hasaccount} = newEmployee
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        addEmployee(name, gender, email, address, phone, role)
+        addEmployee(name, gender, birthday, address, hasaccount)
 
         setNewEmployee({
             name: '',
             gender: '',
-            email: '',
+            birthday: '',
             address: '',
-            phone: '',
-            role: '',
+            hasaccount: ''
         })
     }
 
@@ -66,14 +68,15 @@ const AddForm = () => {
             </Form.Group>
             <Form.Group>
                 <InputGroup className="mb-3">
-                    <InputGroup.Text id="inputGroup-sizing-sm">Email</InputGroup.Text>
-                    <Form.Control  
-                        type="email"
-                        placeholder="Enter your email" 
-                        name="email"
-                        value={email}
-                        onChange={e => onInputChange(e)}
-                        required
+                    <InputGroup.Text id="inputGroup-sizing-sm">Birthday</InputGroup.Text>
+                    <Flatpickr
+                         value={date} // giá trị ngày tháng
+                            // các option thêm cho thư viện
+                        options={{
+                                dateFormat: "d-m-Y" // format ngày giờ
+                         }}
+                        // event
+                            onChange={(e) => setDate(e.target.value.dateFormat)}
                     />
                 </InputGroup>
             </Form.Group>
@@ -92,30 +95,19 @@ const AddForm = () => {
             </Form.Group>
             <Form.Group>
                 <InputGroup className="mb-3">
-                    <InputGroup.Text id="inputGroup-sizing-sm">Phone</InputGroup.Text>
-                    <Form.Control  
-                        type="text" 
-                        placeholder="Enter your phone number"
-                        name="phone"
-                        value={phone}
-                        onChange={e => onInputChange(e)}
+                    <InputGroup.Text id="inputGroup-sizing-sm">Has Account</InputGroup.Text>
+                     <Form.Select 
+                        onChange={e => onInputChange(e)} 
+                        name="hasaccount"
                         required
-                    />
+                    >
+                        <option value="" selected hidden disabled>Choose your Has Account</option>
+                        <option value="True">True</option>
+                        <option value="False">False</option>
+                    </Form.Select>
                 </InputGroup>
             </Form.Group>
-            <Form.Group>
-                <InputGroup className="mb-3">
-                    <InputGroup.Text id="inputGroup-sizing-sm">Role</InputGroup.Text>
-                    <Form.Control  
-                        type="text" 
-                        placeholder="Enter your role" 
-                        name="role"
-                        value={role}
-                        onChange={e => onInputChange(e)}
-                        required
-                    />
-                </InputGroup>
-            </Form.Group>
+          
             <Button type="submit">Add new employee</Button>
         </Form>
     )

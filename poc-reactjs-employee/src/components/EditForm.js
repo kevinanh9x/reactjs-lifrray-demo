@@ -2,20 +2,21 @@ import { Button, Form, InputGroup } from 'react-bootstrap';
 import React from 'react'
 import { useContext, useState } from 'react'
 import { EmployeeContext } from '../context/EmployeeContext';
+import "flatpickr/dist/flatpickr.css";
+import Flatpickr from "react-flatpickr";
 
 const EditForm = ({theEmployee}) => {  
     const id = theEmployee.id
 
     const [name, setName] = useState(theEmployee.name)
     const [gender, setGender] = useState(theEmployee.gender)
-    const [email, setEmail] = useState(theEmployee.email)
+    const [birthday, setBirthDay] = useState(theEmployee.birthday)
     const [address, setAddress] = useState(theEmployee.address)
-    const [phone, setPhone] = useState(theEmployee.phone)
-    const [role, setRole] = useState(theEmployee.role)
+    const [hasaccount, sethasAccount] = useState(theEmployee.hasaccount)
 
     const {updateEmployee} = useContext(EmployeeContext)
 
-    const updatedEmployee = {id, name, gender, email, address, phone, role}
+    const updatedEmployee = {id, name, gender, birthday, address, hasaccount}
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -58,16 +59,16 @@ const EditForm = ({theEmployee}) => {
             </Form.Group>
             <Form.Group>
                 <InputGroup className="mb-3">
-                    <InputGroup.Text id="inputGroup-sizing-sm">
-                        Email :
-                    </InputGroup.Text>
-                    <Form.Control  
-                        type="email" 
-                        placeholder="Email" 
-                        name="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
+                    Birthday :
+                    <Flatpickr
+                        name="birthday"
+                         value={birthday} // giá trị ngày tháng
+                            // các option thêm cho thư viện
+                        options={{
+                                dateFormat: "d-m-Y" // format ngày giờ
+                         }}
+                        // event
+                            onChange={(e) => setBirthDay(e)}
                     />
                 </InputGroup>
             </Form.Group>
@@ -89,33 +90,22 @@ const EditForm = ({theEmployee}) => {
             <Form.Group>
                 <InputGroup className="mb-3">
                     <InputGroup.Text id="inputGroup-sizing-sm">
-                        Phone :
+                        Has Account :
                     </InputGroup.Text>
-                    <Form.Control 
-                        type="text" 
-                        placeholder="Phone" 
-                        name="phone"
-                        value={phone}
-                        onChange={(e) => setPhone(e.target.value)}
+
+                    <Form.Select 
+                        onChange={e => sethasAccount(e.target.value)} 
+                        name="hasaccount"
                         required
-                    />
+                    >
+                        <option value="" selected hidden disabled>Choose your Has Account</option>
+                        <option value="True">True</option>
+                        <option value="False">False</option>
+                    </Form.Select>
+
                 </InputGroup>
             </Form.Group>
-            <Form.Group>
-                <InputGroup className="mb-3">
-                    <InputGroup.Text id="inputGroup-sizing-sm">
-                        Role :
-                    </InputGroup.Text>
-                    <Form.Control 
-                        type="text" 
-                        placeholder="Role" 
-                        name="role"
-                        value={role}
-                        onChange={(e) => setRole(e.target.value)}
-                        required
-                    />
-                </InputGroup>
-            </Form.Group>
+
             <Button type="submit">Edit employee</Button>
         </Form>
     )
